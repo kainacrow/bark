@@ -1,4 +1,4 @@
-<%#= binding.pry %>
+<%= binding.pry %>
 <%= will_paginate @dogs %>
 <a href="<%= url_for(dog) %>">
   <article>
@@ -6,9 +6,3 @@
     <%= image_tag url_for(dog.images.first), class: "dog-photo", alt: "Photo of #{dog.name}" %>
   </article>
 </a>
-<%# Dog.all.each_with_index do |dog, index| %>
-  <%# if index % 2 == 1 %>
-    <%# a href="https://www.w3schools.com"%>
-    <%# image_tag src='/app/assets/images/ad.jpg'  %>
-    <%# end %>
-<%# end %>

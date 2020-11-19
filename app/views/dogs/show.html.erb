@@ -1,9 +1,7 @@
 <section>
   <h2><%= @dog.name %></h2>
-  <%#= will_paginate @dog.name , renderer: RemoteLinkPagination::LinkRenderer %>
 
   <% @dog.images.each do |image| %>
-    <%#= binding.pry %>
     <%= image_tag url_for(image), alt: "Photo of #{@dog.name}" %>
   <% end %>
 

@@ -2,7 +2,7 @@
   <%#= binding.pry %>
   <%= f.input :name %>
   <%= f.input :description, as: :text %>
-  <%= f.input :images, as: :file, multiple: true %>
+  <%= f.input :image, as: :file %>
 
   <% if @dog.images.any? %>
     <%= image_tag @dog.images.first %>

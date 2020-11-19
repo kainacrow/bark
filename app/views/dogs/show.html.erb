@@ -1,9 +1,25 @@
 <section>
   <h2><%= @dog.name %></h2>
-
-  <% @dog.images.each do |image| %>
-    <%= image_tag url_for(image), alt: "Photo of #{@dog.name}" %>
+  <% if User.where(id: @dog.user_id).any? %>
+    <h3>User Id: <%= User.find(@dog.user_id).id %></h3>
   <% end %>
+
+  <div class="owl-carousel">
+    <% @dog.images.each do |image| %>
+      <div>
+        <%= image_tag url_for(image), alt: "Photo of #{@dog.name}", class: "img" %>
+      </div>
+    <% end %>
+  </div>
+
+<!--  <div class="owl-carousel">-->
+    <%# @things.each do |thing| %>
+<!--      <div>-->
+        <%#= thing.name %>
+        <%#= thing.description %>
+<!--      </div>-->
+    <%# end %>
+<!--  </div>-->
 
   <p><%= @dog.description %></p>
 
@@ -11,3 +27,25 @@
   <br>
   <%= link_to "Delete #{@dog.name}'s Profile", dog_path, method: :delete, data: { confirm: 'Are you sure?' } %>
 </section>
+
+<%= content_for(:after_js) do %>
+  <script>
+      $(document).ready(function(){
+          $('.owl-carousel').owlCarousel({
+              // loop: true,
+              // margin:10,
+              responsive:{
+                  0:{
+                      items:1
+                  },
+                  480:{
+                      items:3
+                  },
+                  768:{
+                      items:5
+                  }
+              }
+          })
+      });
+  </script>
+<% end %>

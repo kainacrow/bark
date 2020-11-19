@@ -4,9 +4,12 @@
     <title>DogProfile</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= yield :after_js %>
   </head>
 
   <body>
@@ -35,3 +38,11 @@
 
   </body>
 </html>
+
+<%#= content_for(:after_js) do %>
+<!--  <script>-->
+<!--      $(document).ready(function() {-->
+<!--          setTimeout(function(){$(".owl-carousel").owlCarousel()},2000);-->
+<!--      })-->
+<!--  </script>-->
+<%# end %>

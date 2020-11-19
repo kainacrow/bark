@@ -1,7 +1,7 @@
 <a href="<%= url_for(dog) %>">
   <article>
     <h2 class="dog-name"><%= dog.name %></h2>
-    <%= image_tag url_for(dog.images.first), class: "dog-photo", alt: "Photo of #{dog.name}" %>
+    <%= image_tag url_for(dog.images.first), class: "dog-photo img", alt: "Photo of #{dog.name}" %>
   </article>
 </a>
 
@@ -9,7 +9,7 @@
   <% if dog == dog1 %>
     <% if index % 2 == 1 %>
       <a href="https://www.barkbox.com/">
-      <img src='/assets/ad.jpg'>
+      <img src='/assets/ad.jpg' class="img">
       </a>
     <% end %>
   <% end %>

@@ -5,11 +5,13 @@ class DogsController < ApplicationController
   # GET /dogs.json
   def index
     @dogs = Dog.all.paginate(:page => params[:page], :per_page => 5)
+    @users = User.all
   end
 
   # GET /dogs/1
   # GET /dogs/1.json
   def show
+    @users = User&.find(@dog.user_id)&.id
   end
 
   # GET /dogs/new
@@ -24,15 +26,15 @@ class DogsController < ApplicationController
   # POST /dogs
   # POST /dogs.json
   def create
-    # binding.pry
     @dog = Dog.new(dog_params)
+    @dog.user_id = current_user.id
 
     respond_to do |format|
       if @dog.save
         @dog.images.attach(params[:dog][:image]) if params[:dog][:image].present?
 
         format.html { redirect_to @dog, notice: 'Dog was successfully created.' }
-        format.json { render :show, status: :created, location: @dog }
+        format.json { render :show, status: :created, location: @dog, user: User.find(@dog.user_id).id }
       else
         format.html { render :new }
         format.json { render json: @dog.errors, status: :unprocessable_entity }
@@ -74,6 +76,6 @@ class DogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dog_params
-      params.require(:dog).permit(:name, :description, :images)
+      params.require(:dog).permit(:name, :description, :images, :user_id)
     end
 end

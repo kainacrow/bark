@@ -1,5 +1,17 @@
 {
-  "name": "dog-profile",
-  "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@babel/preset-env": "^7.7.6",
+    "@material-ui/core": "^4.11.0",
+    "@rails/webpacker": "5.1.1",
+    "electron-to-chromium": "^1.3.601",
+    "jquery": "^3.5.1",
+    "node-releases": "^1.1.67",
+    "owl.carousel": "^2.3.4"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^3.11.0"
+  },
+  "browserslist": [
+    "defaults"
+  ]
 }

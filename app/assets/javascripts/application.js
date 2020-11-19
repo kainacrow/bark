@@ -10,9 +10,18 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+import 'stylesheets/application'
+import JQuery from '../.gem/ruby/2.7.2/gems/jquery-rails-4.4.0/vendor/assets/javascripts/jquery';
+window.$ = window.JQuery = JQuery;
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require_tree .
+//= require("jquery")
+//= require 'jquery-ujs';
+//= import 'owl.carousel/dist/assets/owl.carousel.css';
+//= import 'owl.carousel';
+//= require turbolinks
+
+
 
 console.log('Welcome!');

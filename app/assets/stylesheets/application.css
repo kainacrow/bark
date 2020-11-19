@@ -12,10 +12,26 @@
  *
  *= require_tree .
  *= require_self
+
  */
 
 header {
   align-items: center;
   display: flex;
   justify-content: space-between;
+}
+
+.owl-item {
+    display: inline-grid;
+}
+
+.item {
+    display: inline-grid;
+}
+
+.img {
+    /*float: left;*/
+    width:  200px;
+    height: 200px;
+    object-fit: cover;
 }

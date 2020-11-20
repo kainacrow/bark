@@ -4,7 +4,7 @@
     <h3>User Id: <%= User.find(@dog.user_id).id %></h3>
   <% end %>
 
-  <div class="owl-carousel">
+  <div class="<%= 'owl-carousel' if @dog.images.length > 1 %>">
     <% @dog.images.each do |image| %>
       <div>
         <%= image_tag url_for(image), alt: "Photo of #{@dog.name}", class: "img" %>
@@ -12,20 +12,13 @@
     <% end %>
   </div>
 
-<!--  <div class="owl-carousel">-->
-    <%# @things.each do |thing| %>
-<!--      <div>-->
-        <%#= thing.name %>
-        <%#= thing.description %>
-<!--      </div>-->
-    <%# end %>
-<!--  </div>-->
-
   <p><%= @dog.description %></p>
-
-  <%= link_to "Edit #{@dog.name}'s Profile", edit_dog_path %>
+  <% unless @users != current_user.id %>
+    <%= link_to "Edit #{@dog.name}'s Profile", edit_dog_path %>
+  <% end %>
   <br>
   <%= link_to "Delete #{@dog.name}'s Profile", dog_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+
 </section>
 
 <%= content_for(:after_js) do %>

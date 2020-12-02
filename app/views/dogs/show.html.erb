@@ -13,7 +13,7 @@
   </div>
 
   <p><%= @dog.description %></p>
-  <% unless @users != current_user.id %>
+  <% unless @users != current_user&.id %>
     <%= link_to "Edit #{@dog.name}'s Profile", edit_dog_path %>
   <% end %>
   <br>

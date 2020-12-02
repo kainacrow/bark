@@ -5,15 +5,21 @@
   </article>
 </a>
 
-<% Dog.all.each_with_index do |dog1, index| %>
-  <% if dog == dog1 %>
-    <% if index % 2 == 1 %>
-      <a href="https://www.barkbox.com/">
-      <img src='/assets/ad.jpg' class="img">
-      </a>
-    <% end %>
-  <% end %>
+<% if dog_counter % 2 == 1 %>
+  <a href="https://www.barkbox.com/">
+    <img src='/assets/ad.jpg' class="img">
+  </a>
 <% end %>
+
+<%# Dog.all.each_with_index do |dog1, index| %>
+  <%# if dog == dog1 %>
+    <%# if index % 2 == 1 %>
+<!--      <a href="https://www.barkbox.com/">-->
+<!--      <img src='/assets/ad.jpg' class="img">-->
+<!--      </a>-->
+    <%# end %>
+  <%# end %>
+<%# end %>
 
 
 
